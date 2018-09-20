@@ -5,9 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "server": "node server/app",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "jsonwebtoken": "^8.3.0",
+    "sqlite3": "^4.0.2",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
