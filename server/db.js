@@ -9,40 +9,25 @@ class Db {
 
     createTable() {
         const sql = `
-            CREATE TABLE IF NOT EXISTS user (
+            CREATE TABLE IF NOT EXISTS userAuth (
                 id integer PRIMARY KEY, 
                 name text, 
                 email text UNIQUE, 
-                user_pass text,
-                is_admin integer)`
+                password text)`
         return this.db.run(sql);
     }
 
     selectByEmail(email, callback) {
         return this.db.get(
-            `SELECT * FROM user WHERE email = ?`,
+            `SELECT * FROM userAuth WHERE email = ?`,
             [email], function (err, row) {
                 callback(err, row)
             })
     }
 
-    insertAdmin(user, callback) {
-        return this.db.run(
-            'INSERT INTO user (name,email,user_pass,is_admin) VALUES (?,?,?,?)',
-            user, (err) => {
-                callback(err)
-            })
-    }
-
-    selectAll(callback) {
-        return this.db.all(`SELECT * FROM user`, function (err, rows) {
-            callback(err, rows)
-        })
-    }
-
     insert(user, callback) {
         return this.db.run(
-            'INSERT INTO user (name,email,user_pass) VALUES (?,?,?)',
+            'INSERT INTO userAuth (name,email,password) VALUES (?,?,?)',
             user, (err) => {
                 callback(err)
             })

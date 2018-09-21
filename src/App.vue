@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
-      <span v-else> | <a @click="logout">Login</a></span>
+      <span v-else> | 
+        <router-link to="/login">Login</router-link>
+        </span>
     </div>
     <router-view/>
   </div>
@@ -13,16 +15,6 @@
 
 <script>
 export default {
-  created: function() {
-    this.$http.interceptors.response.use(undefined, function(err) {
-      return new Promise(function(resolve, reject) {
-        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
-          this.$store.dispatch(logout);
-        }
-        throw err;
-      });
-    });
-  },
   computed: {
     isLoggedIn: function() {
       return this.$store.getters.isLoggedIn;
@@ -35,6 +27,16 @@ export default {
       });
     }
   }
+  // created: function() {
+  //   this.$http.interceptors.response.use(undefined, function(err) {
+  //     return new Promise(function(resolve, reject) {
+  //       if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+  //         this.$store.dispatch(logout);
+  //       }
+  //       throw err;
+  //     });
+  //   });
+  // }
 };
 </script>
 
