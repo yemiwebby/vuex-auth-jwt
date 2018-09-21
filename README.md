@@ -1,21 +1,39 @@
-# vuex-auth
+## Authentication in Vue using Vuex
 
-## Project setup
-```
-npm install
-```
+Build an application with a protected route and handle authentication using Vuex.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
+## Getting Started
+
+### Clone the repository
+```bash
+$ git clone https://github.com/yemiwebby/vuex-auth-jwt.git
 ```
 
-### Lints and fixes files
+### Change directory
+```bash
+$ cd vuex-auth-jwt
 ```
-npm run lint
+
+### Install dependencies
+```bash
+$ npm install
 ```
+
+### Run the application
+#### Frontend
+```bash
+$ npm run serve
+```
+
+#### Backend ( Server )
+```bash
+$ node server/app
+```
+
+## Prerequisites
+A knowledge of JavaScript and Vue.js
+
+## Built With
+
+* [Vue.js](https://vuejs.org/) - A JavaScript library for building user interfaces.
